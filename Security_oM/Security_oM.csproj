@@ -76,6 +76,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\ITRack.cs" />
     <Compile Include="Elements\CameraDevice.cs" />
     <Compile Include="Enums\CameraType.cs" />
     <Compile Include="Enums\MountingType.cs" />
