@@ -41,11 +41,13 @@ namespace BH.oM.ICT.Elements
         public virtual Point Position { get; set; } = new Point();
 
         [Description("The maximum number of standard units that the IT Rack is capable of containing.")]
-        public virtual int UCapacity { get; set; } = 42;                        
+        public virtual int UCapacity { get; set; } = 42;
 
+        [Length]
         [Description("The total physical length of the IT Rack, also understood as its depth.")]
         public virtual double Length { get; set; } = 0;
 
+        [Length]
         [Description("The total physical width of the IT Rack, also understood as its front size.")]
         public virtual double Width { get; set; } = 0;
 
