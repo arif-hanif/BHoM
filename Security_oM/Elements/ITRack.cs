@@ -54,6 +54,8 @@ namespace BH.oM.ICT.Elements
         [Description("The IT Rack mounting type that describes how it's installed.")]
         public virtual MountingType Mounting { get; set; } = MountingType.Undefined;
 
+        //changes
+
         /***************************************************/
     }
 }
