@@ -52,9 +52,7 @@ namespace BH.oM.ICT.Elements
         public virtual double Width { get; set; } = 0;
 
         [Description("The IT Rack mounting type that describes how it's installed.")]
-        public virtual MountingType Mounting { get; set; } = MountingType.Undefined;
-
-        //changes
+        public virtual MountingType Mounting { get; set; } = MountingType.Undefined;        
 
         /***************************************************/
     }
