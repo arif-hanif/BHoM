@@ -20,36 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.LifeCycleAssessment.Fragments
 {
-    [Description("This enum provides several evaluation fields that are commonly assessed within standard Environmental Product Declarations. You may provide single or multiple EPD Field selections for evaluation within the EvaluateEnvironmentalProductDeclaration compute method.")]
-    public enum EnvironmentalProductDeclarationField
+    public class EnvironmentalMetric : BHoMObject, IFragment
     {
-        Undefined,
-        AcidificationPotential,
-        BiogenicCarbon,
-        DepletionOfAbioticResources,
-        DepletionOfAbioticResourcesFossilFuels,
-        EutrophicationPotential,
-        ExportedElectricalEnergy,
-        ExportedThermalEnergy,
-        FreshWater,
-        GlobalWarmingPotential,
-        HazardousWasteDisposed,
-        MaterialForEnergyRecovery,
-        NonHazardousWasteDisposed,
-        NonRenewableSecondaryFuels,
-        OzoneDepletionPotential,
-        PhotochemicalOzoneCreationPotential,
-        PrimaryEnergyNonRenewableEnergy,
-        PrimaryEnergyNonRenewableResource,
-        PrimaryEnergyRenewableEnergy,
-        PrimaryEnergyRenewableTotal,
-        PrimaryEnergyResourcesRawMaterials,
-        RadioActiveWasteDisposed,
-        RenewableSecondaryFuels,
-        SecondaryMaterial
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        [Description("This enum provides several evaluation fields that are commonly assessed within standard Environmental Product Declarations. You may provide single or multiple EPD Field selections for evaluation within the EvaluateEnvironmentalProductDeclaration compute method.")]
+        public virtual EnvironmentalProductDeclarationField Field { get; set; } = EnvironmentalProductDeclarationField.GlobalWarmingPotential;
+
+        [Description("The quantity of the specified field as a constanct used in the material's evaluation.")]
+        public virtual double Quantity { get; set; } = double.NaN;
+
+        [Description("Phase abbreviation for the scope of the EPD. For single phase entries, please input the relevant phase of evaluation i.e. A1 or A1-A3. More information on typical LCA phases can be found in the repository wiki.")]
+        public virtual List<LifeCycleAssessmentPhases> Phase { get; set; } = new List<LifeCycleAssessmentPhases>();
+
+        /***************************************************/
     }
 }
+

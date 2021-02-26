@@ -20,34 +20,52 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Physical.Materials;
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Dynamic;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.LifeCycleAssessment.Fragments
 {
-    public interface IEnvironmentalProductDeclarationData : IFragment, IMaterialProperties
+    public class ProductData : BHoMObject, IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Density]
-        [Description("The material density in kg/m^3.")]
-        double Density { get; set; }
 
-        [Description("Note that any EPD that does not contain this parameter will not be evaluated." +
-            "This metric is based on the declared unit of the reference EPD, i.e. a declared unit of kg refers to QuantityType of mass, a declared unit of m3 refers to a QuantityType of volume, etc. " +
-            "All data should be normalized to metric declared units before integration in the BHoM. " +
-            "The quantity type is a key metric for evaluation methods to function. " +
-            "This property determines how the material is to be evaluated, based on Mass, Volume, Area, Item, or Length. ")]
-        QuantityType QuantityType { get; set; }
+        [Description("Brief summary of the EPD from the data source.")]
+        public virtual string Description { get; set; } = "";
 
-        [Description("The number of units in reference to quantity type. Example, 1000 kg per unit quantityType of Mass.")]
-        double QuantityTypeValue { get; set; }
+        [Description("Description of the material's treatment after its useful life.")]
+        public virtual string EndOfLifeTreatment { get; set; } = "";
+
+        [Description("Unique identifier of the EPD from the source of the information.")]
+        public virtual string Id { get; set; } = "";
+
+        [Description("Industry Standards referenced in creating the product.")]
+        public virtual List<string> IndustryStandards { get; set; } = new List<string>();
+
+        [Description("The period of useful life of the product measured in years.")]
+        public virtual int Lifespan { get; set; } = 0;
+
+        [Description("Manufacturer name.")]
+        public virtual string Manufacturer { get; set; } = "";
+
+        [Description("MasterFormat code for material type organisation.")]
+        public virtual string MasterFormat { get; set; } = "";
+
+        [Description("Manufacturing facility name within which the product was created.")]
+        public virtual string Plant { get; set; } = "";
+
+        [Description("Postal Code within which the product was created.")]
+        public virtual int PostalCode { get; set; } = 0;
+
+        [Description("Amount of post consumer recycled content measured in kg.")]
+        public virtual string PostConsumerRecycledContent { get; set; } = "";
+
+        [Description("Year in which the EPD was created.")]
+        public virtual int ReferenceYear { get; set; } = 0;
 
         /***************************************************/
     }
 }
+

@@ -54,6 +54,9 @@
     <Compile Include="Enums\QuantityType.cs" />
     <Compile Include="Enums\ProjectType.cs" />
     <Compile Include="Enums\EnvironmentalProductDeclarationField.cs" />
+    <Compile Include="Fragments\SectorData.cs" />
+    <Compile Include="Fragments\ProductData.cs" />
+    <Compile Include="Fragments\EnvironmentalMetric.cs" />
     <Compile Include="ScopeObjects\IScope.cs" />
     <Compile Include="Results\GlobalWarmingPotentialResult.cs" />
     <Compile Include="Results\LifeCycleAssessmentElementResult.cs" />
